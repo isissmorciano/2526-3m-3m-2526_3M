@@ -45,16 +45,39 @@
 import json
 
 def salva_inventario(prodotti: list[dict], nome_file: str):
-    pass
+    try:
+        with open(nome_file, "w", encoding="utf-8") as file:
+            json.dump(prodotti, file, indent = 4)
+        print(f"{nome_file} scritto con successo")
+    except IOError as e:
+        print(f"Errore durante la scrittura del file: {e}")
 
 def carica_inventario(nome_file: str) -> list[dict]:
-    pass
+    try:
+        with open(nome_file, "r", encoding="utf-8") as file:
+            prodotti_caricati = json.load(file)
+            return prodotti_caricati
+    except FileNotFoundError:
+        print(f"Errore il {nome_file} non è stato trovato")
+        return []
+    except json.JSONDecoderError as e:
+        print(f"Errore nel parsing JSON: {e}")
+        return []
 
 def filtra_per_categoria(prodotti: list[dict], categoria: str) -> list:
-    pass
+    filtrati = []
+    for prodotto in prodotti:
+        if prodotto['categoria'] == categoria:
+            filtrati.append(prodotto)
+        return filtrati
 
 def calcola_totale_categoria(prodotti: list[dict], categoria: str) -> float:
-    pass
+    totale = 0.0
+    for prodotto in prodotti:
+        if prodotto['categoria'] == categoria:
+
+            totale = totale + (prodotto['prezzo'] * prodotto['quantità'])
+        return totale
 
 def main():
     prodotti = [
@@ -62,3 +85,16 @@ def main():
      {"nome": "Pane", "categoria": "Pane", "prezzo": 1.0, "quantita": 5},
      {"nome": "Banana", "categoria": "Frutta", "prezzo": 1.8, "quantita": 8}
 ]
+    nome_file = "inventario.json"
+
+    salva_inventario(prodotti, nome_file)
+    prodotti_caricati = carica_inventario(nome_file)
+    if prodotti_caricati:
+        frutta = filtra_per_categoria(prodotti_caricati, "Frutta")
+        print(f"Prodotti caricati: {prodotti_caricati}")
+        valore_totale = calcola_totale_categoria(prodotti_caricati, "Frutta")
+        print(f"Prodotti Frutta: {frutta}")
+        print(f"Valore totale {prodotti_caricati['categoria']}: {valore_totale:.1f}")
+
+if __name__ == "__main__":
+    main()
