@@ -39,7 +39,7 @@
 # 3. Aggiungile alla playlist
 # 4. Stampa il contenuto con durata totale
 
-from musica import canzoni, playlist
+from Musica import canzoni, playlist
 
 def main():
     mia_playlist = playlist.crea_playlist("Le mie canzoni preferite")
