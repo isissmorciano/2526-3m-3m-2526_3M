@@ -9,18 +9,16 @@
 # info_punto(punto: dict) -> str:
 # Restituisce formato: "(x, y)"
 # Esempio: "(3.5, 2.0)"
+
 import math
+
 def crea_punto(x: float, y: float) -> dict:
     return {"X": x,
-            "Y": y}
-
+                "Y": y}
 
 def distanza_tra_punti(p1: dict, p2: dict) -> float:
-    num = (p2["x"] - p1["x"])**2 + (p2["y"] - p1["x"])**2
+    num = (p2["X"] - p1["X"])**2 + (p2["Y"] - p1["Y"])**2
     return math.sqrt(num)
 
-
 def info_punto(punto: dict) -> str:
-    return (f"{punto["x"]}, {punto["y"]}")
-
-
+    return (f"({punto['X']}, {punto['Y']})")
