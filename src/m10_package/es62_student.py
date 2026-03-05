@@ -71,3 +71,37 @@
 # - Rappresenta una linea con: `{"p1": {...}, "p2": {...}}`
 # - Usa `math.sqrt()` per calcolare la radice quadrata
 # - Arrotonda i risultati a 2 decimali con `round(valore, 2)`
+
+from Coordinate import Punti, Linee
+
+def main():
+    punto_a = Punti.crea_punto(0.0, 0.0)
+    punto_b = Punti.crea_punto(3.0, 4.0)
+    punto_c = Punti.crea_punto(6.0, 0.0)
+
+    print("Coordinate: ")
+    print(f"Coordinate A: {Punti.info_punto(punto_a)}")
+    print(F"Coordinate B: {Punti.info_punto(punto_b)}")
+    print(F"Coordinate C: {Punti.info_punto(punto_c)}")
+
+    linea_ab = Linee.crea_linea(punto_a, punto_b)
+    linea_bc = Linee.crea_linea(punto_b, punto_c)
+    linea_ca = Linee.crea_linea(punto_c, punto_a)
+
+    print("/nLinee: ")
+    for linea in [linea_ab, linea_bc, linea_ca]:
+        lungh = round(Linee.lunghezza_linea(linea), 2)
+        medio = Linee.punto_medio(linea)
+        print(
+            f"- {Linee.info_linea(linea)} | "
+            f"Lunghezza: {lungh} | "
+            f"Punto medio: {Punti.info_punto(medio)}"
+        )
+
+    print("\nDistanze:")
+    print(f"- A a B: {round(Punti.distanza_tra_punti(punto_a, punto_b), 2)}")
+    print(f"- B a C: {round(Punti.distanza_tra_punti(punto_b, punto_c), 2)}")
+    print(f"- C a A: {round(Punti.distanza_tra_punti(punto_c, punto_a), 2)}")
+
+if __name__ == "__main__":
+    main()
