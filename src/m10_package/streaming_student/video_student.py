@@ -23,9 +23,19 @@ def info_video(video:dict) -> str:
     return (f"Titolo: {video['titolo']};\nDurata: {video['durata']};\nRisoluzione: {video['risoluzione']};\nBitrate: {video['bitrate']}")
 
 
-def dimensione_video(video:dict)->float:
-    kilobit = video["durata"] * video["bitrate"]
-    kilobyte = kilobit / 8
-    return f"{(kilobyte / 1024):.2f}"
+
+def dimensione_video(video:dict) -> float:
+    durata = video["durata"]
+    bitrate = video["bitrate"]
+    dimensione_kilobit = durata * bitrate
+    dimensione_kilobyte = dimensione_kilobit / 8
+    dimensione_megabyte = dimensione_kilobyte / 1024
+    return round(dimensione_megabyte, 2)
+
+
+
+
+
+
 
 
