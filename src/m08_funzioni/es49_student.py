@@ -58,22 +58,7 @@ def main():
     numero_generato: int = genera_numero()
     print(f"SOLO PER NOI il numero generato e': {numero_generato}")  # 63
 
-    numero_di_tentativi = 0
-
-    while True:
-        tentativo: int = chiedi_tentativo(numero_generato) # chiedi un numero all utente
-        # verifica se l'utente ha indovinato
-        risultato: str = verifica_tentativo(tentativo, numero_generato)
-        numero_di_tentativi = aggiorna_contatore(numero_di_tentativi)
-        if risultato == "corretto":
-            print(f"Hai indovinato in {numero_di_tentativi} tentativi")
-            break
-        elif risultato == "alto":
-            print(f"Riprova. Il numero da indovinare e' piu' basso")
-        elif risultato == "basso":
-            print(f"Riprova. Il numero da indovinare e' piu' alto")
-        else:
-            print(f"AHHHHHHHHHHHHHHHH")
+    
 
 
     
