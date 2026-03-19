@@ -38,5 +38,7 @@ def durata_totale(playlist: dict) -> int:
 
 
 def mostra_playlist(playlist: dict) -> str:
-    return(playlist)
+    return f"Playlist: {playlist['nome']}\n" + "\n".join([f"{canzone['titolo']} - {canzone['artista']} ({canzone['durata']}s)" for canzone in playlist["canzoni"]])
+
+
 

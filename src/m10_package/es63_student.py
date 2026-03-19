@@ -29,10 +29,12 @@ from streaming_student.playlist_video_student import crea_playlist, aggiungi_vid
 def main():
     nome = "Corso Python Base"
     playlist = crea_playlist(nome)
+    
     v1 = crea_video("Introduzione a python",930,"1080p",5000)
     v2 = crea_video("variabili e Tipi",1335,"720p",3000)
     v3 = crea_video("Funzioni e Moduli",1080,"1080p",5000)
     v4 = crea_video("Liste e Dizionari",1560,"480p",2000)
+    
     aggiungi_video(playlist,v1)
     aggiungi_video(playlist,v2)
     aggiungi_video(playlist,v3)
