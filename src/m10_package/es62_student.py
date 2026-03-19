@@ -79,7 +79,7 @@ def main():
     punto_b = Punti.crea_punto(3.0, 4.0)
     punto_c = Punti.crea_punto(6.0, 0.0)
 
-    print("Coordinate: ")
+    print("/nCoordinate: ")
     print(f"Coordinate A: {Punti.info_punto(punto_a)}")
     print(F"Coordinate B: {Punti.info_punto(punto_b)}")
     print(F"Coordinate C: {Punti.info_punto(punto_c)}")

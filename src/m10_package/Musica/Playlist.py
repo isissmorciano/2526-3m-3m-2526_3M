@@ -3,6 +3,8 @@
 # - `crea_playlist(nome: str) -> dict:` 
 #   - Restituisce un dizionario con `nome` e `canzoni` (lista vuota)
 
+from Musica import Canzoni
+
 def crea_playlist(nome:str) -> dict:
     playlist = {
         "Nome della Playlist": nome,

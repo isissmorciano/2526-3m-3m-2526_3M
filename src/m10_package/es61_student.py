@@ -39,20 +39,20 @@
 # 3. Aggiungile alla playlist
 # 4. Stampa il contenuto con durata totale
 
-from Musica import canzoni, playlist
+from Musica import Canzoni, Playlist
 
 def main():
-    mia_playlist = playlist.crea_playlist("Le mie canzoni preferite")
+    mia_playlist = Playlist.crea_playlist("Le mie canzoni preferite")
 
-    canzone1 = canzoni.crea_canzone("Bohemian Rhapsody", "Queen", 355)
-    canzone2 = canzoni.crea_canzone("Stairway to Heaven", "Led Zeppelin", 482)
-    canzone3 = canzoni.crea_canzone("Hotel California", "Eagles", 390)
+    canzone1 = Canzoni.crea_canzone("Bohemian Rhapsody", "Queen", 355)
+    canzone2 = Canzoni.crea_canzone("Stairway to Heaven", "Led Zeppelin", 482)
+    canzone3 = Canzoni.crea_canzone("Hotel California", "Eagles", 390)
     
-    playlist.aggiungi_canzone(mia_playlist, canzone1)
-    playlist.aggiungi_canzone(mia_playlist, canzone2)
-    playlist.aggiungi_canzone(mia_playlist, canzone3)
+    Playlist.aggiungi_canzone(mia_playlist, canzone1)
+    Playlist.aggiungi_canzone(mia_playlist, canzone2)
+    Playlist.aggiungi_canzone(mia_playlist, canzone3)
     
-    print(playlist.mostra_playlist(mia_playlist))
+    print(Playlist.mostra_playlist(mia_playlist))
 
 
 if __name__ == "__main__":
