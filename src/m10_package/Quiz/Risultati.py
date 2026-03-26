@@ -15,13 +15,13 @@ def percentuale_corrette(risultati: dict) -> float:
     totale = risultati.get("Totale", 0)
     if totale == 0:
         return 0.0
-    return round(risultati.get("corretti", 0)) / totale * 100, 1
+    return round(risultati.get("Corretti", 0)) / totale * 100, 1
 
 def mostra_risultati(risultati: dict) -> str:
     percentuale = percentuale_corrette(risultati)
     return (
-        f"Risposte corrette: {risultati.get('corretti', 0)}/" 
-        f"{risultati.get('totale', 0)} ({percentuale}%)"
+        f"Risposte corrette: {risultati.get('Corretti', 0)}/" 
+        f"{risultati.get('Totale', 0)} ({percentuale}%)"
     )
 
 def salva_risultati(risultati: dict, nome_file: str) -> None:

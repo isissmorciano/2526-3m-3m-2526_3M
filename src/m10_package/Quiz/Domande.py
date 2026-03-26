@@ -12,9 +12,9 @@ def info_domanda(domanda:dict) -> str:
     return "\n".join(linee)
 
 def risposta_valida(domanda: dict, scelta: int) -> bool:
-    return 1 <= scelta <= len(domanda["opzioni"])
+    return 1 <= scelta <= len(domanda["Opzioni"])
 
 def verifica_risposta(domanda: dict, scelta: int) -> bool:
     if not risposta_valida(domanda, scelta):
         return False
-    return (scelta - 1) == domanda["risposta"]
+    return (scelta - 1) == domanda["Risposta"]
