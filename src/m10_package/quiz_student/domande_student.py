@@ -16,7 +16,7 @@ def crea_domanda(testo: str, opzioni: list[str], risposta: int) -> dict:
 
 
 def info_domanda(domanda: dict) -> str:
-    testo = f"{domanda["testo"]}\n" 
+    testo = (f"{domanda['testo']}\n") 
     for i, opzione in enumerate(domanda["opzioni"], start=1):
         testo += f"{i}: {opzione}\n"
     return testo
@@ -24,7 +24,18 @@ def info_domanda(domanda: dict) -> str:
 
 def risposta_valida(domanda: dict, scelta: int) -> bool:
     if 1 < scelta <= len(domanda["opzioni"]):
-        return scelta
+        return True
+    else:
+        return False
+    
+
+def verifica_risposta(domanda:dict,scelta:int)->bool:
+    if domanda["risposta"]==scelta:
+        return True
+    else:
+        return False
+
+    
 
 
 
