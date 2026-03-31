@@ -11,6 +11,9 @@ def info_domanda(domanda:dict) -> str:
         linee.append(f"{i}. {opzione}")
     return "\n".join(linee)
 
+# domanda_str = f"Domanda: {domanda['Testo]}\n"
+# domansta_str = domanda_str + f"{i}. {opzione}
+
 def risposta_valida(domanda: dict, scelta: int) -> bool:
     return 1 <= scelta <= len(domanda["Opzioni"])
 
