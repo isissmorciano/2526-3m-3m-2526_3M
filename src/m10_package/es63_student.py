@@ -2,52 +2,9 @@
 
 # ## Obiettivo
 
-
-
 # - Organizzare funzioni correlate in moduli
 # - Usare dizionari per rappresentare dati
 # - Ordinare dati con criteri personalizzati usando `sorted()` e `key`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #Parte 3: Modulo `playlist.py`
     # Implementa funzioni per gestire collezioni di video.
@@ -94,40 +51,60 @@
 
 # from streaming import video ,playlist 
 
-from streaming.playlist import *
-from streaming.video import *
+"""Esercizio 63: Utilizzo del package streaming con video e playlist."""
+
+from streaming import video, playlist
 
 
+def main() -> None:
+    # Crea una playlist
+    mia_playlist = playlist.crea_playlist("Corso Python 2026")
 
-def main():
-    nome="Corso Python Base"
+    # Crea i video con diverse risoluzioni e bitrate
+    v1 = video.crea_video("Introduzione a Python", 930, "1080p", 5000)
+    v2 = video.crea_video("Variabili e Tipi", 1335, "720p", 3000)
+    v3 = video.crea_video("Funzioni e Moduli", 1080, "1080p", 5000)
+    v4 = video.crea_video("Liste e Dizionari", 1560, "480p", 2000)
+    v5 = video.crea_video("Introduzione OOP", 1350, "720p", 3000)
 
-    # **Video da aggiungere (nell'ordine):**
+    # Aggiungi i video alla playlist
+    playlist.aggiungi_video(mia_playlist, v1)
+    playlist.aggiungi_video(mia_playlist, v2)
+    playlist.aggiungi_video(mia_playlist, v3)
+    playlist.aggiungi_video(mia_playlist, v4)
+    playlist.aggiungi_video(mia_playlist, v5)
 
-    lista_v=[]
+    # Stampa la playlist originale
+    print("=" * 60)
+    print("PLAYLIST ORIGINALE")
+    print("=" * 60)
+    print(playlist.mostra_playlist(mia_playlist))
 
-    # | Titolo | Durata (s) | Risoluzione | Bitrate (kbps) |
-    # |--------|-----------|-------------|---|
-    # | Introduzione a Python | 930 | 1080p | 5000 |
-    # | Variabili e Tipi | 1335 | 720p | 3000 |
-    # | Funzioni e Moduli | 1080 | 1080p | 5000 |
-    # | Liste e Dizionari | 1560 | 480p | 2000 |
+    # Calcola statistiche
+    durata_tot = playlist.durata_totale(mia_playlist)
+    minuti_tot = durata_tot // 60
+    secondi_tot = durata_tot % 60
+    dimensione_tot = playlist.dimensione_totale(mia_playlist)
 
-   
-    playlist=crea_playlist(nome)
+    print(f"\nDurata totale: {minuti_tot}:{secondi_tot:02d}")
+    print(f"Dimensione totale: {dimensione_tot} MB")
 
-    lista_v.append(crea_video('intap',930,1080,5000))
-    lista_v.append(crea_video('vet',1335,720,3000))
-    lista_v.append(crea_video('fem',1080,1080,5000))
-    lista_v.append(crea_video('led',1560,480,2000))
+    # Mostra i dimensioni di ogni video
+    print("\nDimensioni dei video:")
+    for v in mia_playlist["video"]:
+        dim = video.dimensione_video(v)
+        print(f"- {v['titolo']}: {dim} MB")
 
-    for v in lista_v :
+    # Ordina per durata
+    print("\n" + "=" * 60)
+    print("ORDINATI PER DURATA (crescente)")
+    print("=" * 60)
+    video_ordinati = playlist.ordina_per_durata(mia_playlist)
+    print(playlist.mostra_playlist({"nome": "Ordinati per durata", "video": video_ordinati}))
 
-        aggiungi_video(playlist,v)
 
-    print (playlist)
-
-    for video in playlist:
+if __name__ == "__main__":
+    main()
          
 
 
