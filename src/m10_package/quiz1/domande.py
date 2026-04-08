@@ -9,12 +9,12 @@
 #   - Restituisce True se la scelta (1-based) è corretta
 
 def crea_domanda(testo: str, opzioni: list[str], risposta: int) -> dict:
-    return{
+    diz = {
     "testo": testo,
     "opzioni": opzioni,
     "risposta": risposta
     }
-    return crea_domanda
+    return diz
 
 def info_domanda(domanda:dict) -> str:
     testo = domanda.get("testo", "domanda senza testo")
@@ -31,4 +31,3 @@ def verifica_risposta(domanda: dict, scelta: int) -> bool:
         raise ValueError("Scelta non valida")
     risposta_corretta = domanda.get("risposta", -1)
     return scelta - 1 == risposta_corretta
-
