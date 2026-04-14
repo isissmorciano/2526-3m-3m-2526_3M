@@ -42,10 +42,21 @@ def scrivi_file(frasi: list[str], nome_file: str) -> None:
 
 
 def leggi_file(nome_file: str) -> list[str]:
-    pass
+    righe = []
+    with open(nome_file, "r", encoding="utf-8") as file:
+        for riga in file:
+            righe.append(riga.strip())
+    return righe
 
 def main():
+    nome_file: str = "es56_students.txt"
     frasi = ["Ciao mondo", "Python è divertente", "File handling"]
-    scrivii_file = scrivi_file()
-    leggii_file = leggi_file()
-    nome_file = "es56_students.txt"
+    scrivi_file(frasi, nome_file)
+    aa = leggi_file(nome_file)
+    print("Output:")
+    
+    for riga in aa:
+        print(riga)
+
+if __name__ == "__main__":
+    main()
