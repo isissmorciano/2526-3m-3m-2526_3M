@@ -18,8 +18,8 @@ def main():
     # print(f"\nTempo per categoria:\n{entrate_student.tempo_per_categoria(mio_diario)}")
     nome_file = "diario.json"
     persistenza_student.salva_diario(mio_diario,nome_file)
-    risultati_caricati = persistenza_student.carica_diario(nome_file)
-    print(f"Risultati caricati:\n{risultati_caricati}")
+    # risultati_caricati = persistenza_student.carica_diario(nome_file)
+    # print(f"Risultati caricati:\n{risultati_caricati}")
 
 if __name__ == "__main__":
     main()
