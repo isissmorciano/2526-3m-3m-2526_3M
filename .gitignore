@@ -1,5 +1,7 @@
+temp/
 .ruff_cache/
 _hidden/
 *.pyc
-**/*reference.py
-src/m10_package/streaming/
+**/v5/*
+**/diario/
+**/es66_reference.py
