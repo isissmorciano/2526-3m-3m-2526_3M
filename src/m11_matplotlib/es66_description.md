@@ -1,4 +1,4 @@
-# Esercizio 66: Grafici con Matplotlib
+#0. Esercizio 66: Grafici con Matplotlib
 
 ## Obiettivo
 Creare un piccolo script Python che disegna diversi grafici usando la libreria esterna `matplotlib` e `numpy`.
