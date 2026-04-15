@@ -42,18 +42,47 @@ import json
 # Media voti: 8.0
 # ```
 
-def salva_studenti(studenti, nome_file):
-    pass
+def salva_studenti(studenti: list[dict], nome_file: str) -> None:
+    try:
+        with open(nome_file, "w", encoding="utf-8") as file:
+            json.dump(studenti, file, indent=4)
+        print(f"File '{nome_file}' salvato con successo.")
+    except IOError as e:
+        print(f"Errore di scrittura JSON: {e}")
 
-def carica_studenti(nome_file):
-    pass
+def carica_studenti(nome_file: str) -> list[dict]:
+    try:
+        with open(nome_file, "r", encoding="utf-8") as file:
+            studenti = json.load(file)
+        return studenti
+    except FileNotFoundError:
+        print("File non trovato.")
+        return []
+    except IOError as e:
+        print(f"Errore di lettura JSON: {e}")
+        return []
+
+def calcola_media(studenti: list[dict]) -> float:
+    somma = sum(studente["voto"] for studente in studenti)
+    return somma / len(studenti)
 
 def main():
     studenti = [
-    {"nome": "Alice", "voto": 8},
-    {"nome": "Bob", "voto": 7},
-    {"nome": "Carlo", "voto": 9}
+        {"nome": "Alice", "voto": 8},
+        {"nome": "Bob", "voto": 7},
+        {"nome": "Carlo", "voto": 9}
     ]
+
+    nome_file = "studenti.json"
+
+    salva_studenti(studenti, nome_file)
+
+    studenti_caricati = carica_studenti(nome_file)
+
+    print(f"Studenti caricati: {studenti_caricati}")
+
+    media = calcola_media(studenti_caricati)
+    print(f"Media voti: {media}")
 
 
 if __name__ == "__main__":
