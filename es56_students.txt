@@ -1,3 +1,0 @@
-Ciao mondo
-Python è divertente
-File handling

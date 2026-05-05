@@ -8,5 +8,5 @@ def crea_canzone(titolo: str, artista: str, durata: int) -> dict:
 def info_canzone(canzone: dict) -> str:
     minuti = canzone["durata"] // 60
     secondi = canzone["durata"] % 60
-    return f"{canzone["titolo"]} - {canzone["artista"]} - ({minuti}:{secondi:02d})"
+    return f'{canzone["titolo"]} - {canzone["artista"]} - ({minuti}:{secondi:02d})'
 

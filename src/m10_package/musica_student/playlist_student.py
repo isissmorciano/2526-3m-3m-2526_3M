@@ -13,3 +13,7 @@ def aggiungi_canzone(playlist: dict, canzone: dict) -> None:
 def rimuovi_canzone(playlist: dict, indice: int) -> None:
     if indice < 0 or indice == 0:
         playlist["canzoni"].pop(indice)
+
+def durata_totale(playlist: dict) -> int:
+    for canzone in playlist:
+        return canzone[durata_totale]

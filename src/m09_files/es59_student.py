@@ -92,7 +92,6 @@ def main():
     nome_file = "inventario.json"
     salva_inventario(prodotti, nome_file)
     carica_inventario(nome_file)
-    # categoria = prodotti["categoria"]
     categoria = input("Di quale categoria vuoi i prodotti?: ")
     filtra_per_categoria(prodotti, categoria)
     totale = calcola_totale_categoria(prodotti, categoria)
