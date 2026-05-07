@@ -21,6 +21,13 @@ def main() -> None:
         0,
     )
 
+    # 
+    print(q1)
+    domanda_ben_formattata = domande.info_domanda(q1)
+    print("\nDomanda formattata:")
+    print(domanda_ben_formattata)
+    exit()
+
     domande_quiz = [q1, q2, q3]
 
     # Simula un utente che risponde
